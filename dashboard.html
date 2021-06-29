@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" type="text/css" href="./bibliotecas/bootstrap/css/bootstrap.min.css">
+    <!-- ÍCONES FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/4250d7b7d7.js" crossorigin="anonymous"></script>
+    <!-- TEMA -->
+    <link rel="stylesheet" type="text/css" href="./css/sb-admin.min.css">
+
+    <title>Dashboard</title>
+</head>
+
+<body id="page-top" class="bg-dark fixed-nav sticky-footer"> <!-- Com "fixed-nav" e "sticky-footer" adicionaremos a barra dark localizada acima da área principal, impedindo outlays nas viewports pequenas-->
+
+<!-- NAVEGAÇÃO -->
+
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> <!-- o id=mainNav puxa o id do tema Admin, fazendo a navbar ir para a direita da página // O bg-dark adiciona o background em viewports pequenas, para que o fundo não fique transparente -->
+        <a class="navbar-brand" href="#">Admin Curso</a> <!-- navbar-brand para o link não aparecer como link-->
+        
+        <!-- MENU HAMBURGUER PARA VIEWPORTS PEQUENOS -->
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarCurso" aria-control="navbarCurso" aria-expanded="false" aria-label="Navegação Toggle"> <!--O data-target indica o id que vai colapsar-->
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- LINKS -->
+
+        <div id="navbarCurso" class="collapse navbar-collapse">
+            <ul class="navbar-nav navbar-sidenav" id="linksAccordion"> <!--Esse id linka com os accordios de "Componentes" e "Páginas"-->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa fa-fw fa-dashboard"></i> <!--Tag <i> para adição de ícones-->
+                        <span class="nav-link-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./cards.html" class="nav-link">
+                        <i class="fas fa-clipboard"></i> <!--Tag <i> para adição de ícones-->
+                        <span class="nav-link-text">Cards</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./tabelas.html" class="nav-link">
+                        <i class="fa fa-fw fa-table"></i> <!--Tag <i> para adição de ícones-->
+                        <span class="nav-link-text">Tabelas</span>
+                    </a>
+                </li>
+
+                <!-- SIDENAV SECOND LEVEL COM ACCORDION -  -->
+
+                <li class="nav-item">
+                    <a href="#linksComponentes" class="nav-link nav-link-collapse collapse" data-toggle="collapse" data-parent="#linksAccordion">
+                        <i class="fa fa-fw fa-wrench"></i> <!--Tag <i> para adição de ícones-->
+                        <span class="nav-link-text">Componentes</span>
+                    </a>
+
+                    <ul class="sidenav-second-level collapse" id="linksComponentes"> <!--Por ter um collapso o id serve com identificador para que o href do link "páginas" possa acessá-lo-->
+                        <li>
+                            <a href="login.html">Página Login</a>
+                        </li>
+                        <li>
+                            <a href="recuperar.html">Recuperar Senha</a>
+                        </li>
+                        <li>
+                            <a href="cadastro.html">Registrar Conta</a>
+                        </li>
+
+                        <!-- LINKS 3 NIVEIS -->
+
+                        <li>
+                            <a href="#links3nivel" CLASS="nav-link-collapse collapse" data-toggle="collapse">Links 3 niveis</a>
+                            <ul class="sidenav-third-level collapse" id="links3nivel">
+                                <li>
+                                    <a href="#">Link #1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Link #2</a>
+                                </li>
+                                <li>
+                                    <a href="#">Link #3</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <!-- PÁGINAS -> Mostrar e esconder links -->
+
+                <li class="nav-item">
+                    <a href="#linksPagina" class="nav-link nav-link-collapse collapse" data-toggle="collapse" data-parent="#linksAccordion"> <!--O "nav-link-collapse" serve para abrir o "sidenav-second-level"-->
+                        <i class="fa fa-fw fa-file"></i> <!--Tag <i> para adição de ícones-->
+                        <span class="nav-link-text">Páginas</span>
+                    </a>
+
+                    <!-- SIDENAV SECOND LEVEL -->
+
+                    <ul class="sidenav-second-level collapse" id="linksPagina"> <!--Por ter um collapso o id serve com identificador para que o href do link "páginas" possa acessá-lo-->
+                        <li>
+                            <a href="login.html">Página Login</a>
+                        </li>
+                        <li>
+                            <a href="recuperar.html">Recuperar Senha</a>
+                        </li>
+                        <li>
+                            <a href="cadastro.html">Registrar Conta</a>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+
+            <!-- o sidenav-toggler faz expandir/colapsar o menu, mostrando apenas os ícones -->
+
+            <ul class="navbar-nav sidenav-toggler">
+                <li class="nav-item">
+                    <a id="sidenavToggler" class="nav-link text-center">
+                        <i class="fa fa-fw fa-angle-left"></i> <!--Tag <i> para adição de ícones-->
+                    </a>
+                </li>
+            </ul>
+
+            <!-- SEARCH BAR / LOGOUT - Menu superior direito -->
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown"> <!--DROPDOWN-->
+                    <a href="#" class="nav-link dropdown-toggle mr-lg-2" id="messageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-fw fa-envelope"></i>
+                        <span class="d-lg-none"> <!-- Com d-lg-none, o elemento não aparece a partir de viewports lg-->
+                            Mensagens
+                            <span class="badge badge-pill badge-primary">12 novas</span>
+                        </span>
+                        <span class="indicator text-primary d-none d-lg-block"> <!-- Essa parte serve para adicionar a bolinha de aviso em viewports lg sobre as notificações-->
+                            <i class="fa fa-fw fa-circle"></i>
+                        </span>
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="messageDropdown"> <!-- DROPDOWN NOTIFICAÇÕES-->
+                        <h6 class="dropdown-header">Novas Mensagens</h6>
+                        <div class="dropdown-divider"></div> <!-- Se fecha na mesma linha pois estamos apenas adicionando uma divisória no dropdown-->
+                        <a href="#" class="dropdown-item">
+                            <strong>All Might</strong>
+                            <span class="small float-right text-muted">14:27</span>
+                            <div class="dropdown-message small">
+                                Midoriya-shounen , have you ever heard these words? Go beyond! PLUS...ULTRA!
+                            </div>
+                            <div class="dropdown-divider"></div>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <strong>Kacchan</strong>
+                            <span class="small float-right text-muted">14:27</span>
+                            <div class="dropdown-message small">
+                                OIOIOI
+                            </div>
+                            <div class="dropdown-divider"></div>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <strong>Shigaraki</strong>
+                            <span class="small float-right text-muted">14:27</span>
+                            <div class="dropdown-message small">
+                                ...
+                            </div>
+                            <div class="dropdown-divider"></div>
+                        </a>
+
+                        <a href="#" class="dropdown-item small">Visualizar todas mensagens</a>
+
+                    </div> 
+                </li>
+
+                <!-- ALERTAS -->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle mr-lg-2" id="alertasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-fw fa-bell"></i>
+                        <span class="d-lg-none"> <!-- Com d-lg-none, o elemento não aparece a partir de viewports lg-->
+                            Alertas
+                            <span class="badge badge-pill badge-warning">3 novos</span>
+                        </span>
+                        <span class="indicator text-warning d-none d-lg-block"> <!-- Essa parte serve para adicionar a bolinha de aviso em viewports lg sobre as notificações-->
+                            <i class="fa fa-fw fa-circle"></i>
+                        </span>
+                    </a>
+
+                    <!-- ITENS ALERTAS -->
+                    <div class="dropdown-menu" aria-labelledby="alertasDropdown">
+                        <h6 class="dropdown-header">Novos Alertas</h6>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <span class="text-success">
+                                <strong>
+                                    <i class="fa fa-fw fa-long-arrow-up"></i>
+                                    Atualização de Estado <!--O texto deve ficar sempre fora da tag <i> -->
+                                </strong>
+                            </span>
+                            <span class="small float-right text-muted">14:27</span>
+                            <div class="dropdown-message small">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci unde exercitationem blanditiis alias voluptatum dignissimos, voluptate nam ea iusto hic esse quas fugit deleniti quisquam expedita sint beatae necessitatibus quo.
+                            </div>
+                            <div class="dropdown-divider"></div>
+                        </a>
+
+                        <a href="#" class="dropdown-item">
+                            <span class="text-danger">
+                                <strong>
+                                    <i class="fa fa-fw fa-long-arrow-down"></i>
+                                    Atualização de Estado <!--O texto deve ficar sempre fora da tag <i> -->
+                                </strong>
+                            </span>
+                            <span class="small float-right text-muted">14:27</span>
+                            <div class="dropdown-message small">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci unde exercitationem blanditiis alias voluptatum dignissimos, voluptate nam ea iusto hic esse quas fugit deleniti quisquam expedita sint beatae necessitatibus quo.
+                            </div>
+                            <div class="dropdown-divider"></div>
+                        </a> 
+
+                        <a href="#" class="dropdown-item">
+                            <span class="text-success">
+                                <strong>
+                                    <i class="fa fa-fw fa-long-arrow-up"></i>
+                                    Atualização de Estado <!--O texto deve ficar sempre fora da tag <i> -->
+                                </strong>
+                            </span>
+                            <span class="small float-right text-muted">14:27</span>
+                            <div class="dropdown-message small">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci unde exercitationem blanditiis alias voluptatum dignissimos, voluptate nam ea iusto hic esse quas fugit deleniti quisquam expedita sint beatae necessitatibus quo.
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item small">Visualizar todos alertas</a>
+                        </a> 
+
+                    </div>
+
+                </li>
+
+
+
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0 mr-lg-2"> <!-- "form-inline" faz o campo e o botão ficarem em linha -->
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Pesquisar por...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                </li>
+
+                <!-- LOGOUT -->
+
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">
+                        <i class="fa fa-sign-out">Logout</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ÁREA PRINCIPAL -->
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Home</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    Dashboard
+                </li>
+            </ol>
+
+            <div class="row">
+                <div class="col-12">
+                    <h1>Título da Página</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis esse iusto non omnis officia sed natus recusandae debitis in corporis, fuga eius, deserunt delectus facilis explicabo dolore ducimus reiciendis?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quidem est pariatur at voluptatum repellat rem corporis quas id? Hic ipsam harum doloribus minima repellat nisi officia dolor veniam repudiandae.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+
+        <footer class="sticky-footer">
+            <div class="container">
+                <div class="text-center">
+                    <small>Copyright seu Site 2021</small>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+    <!-- JQUERY -->
+    <script src="./bibliotecas/jquery/jquery.min.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="./bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- JQUERY EASING -->
+    <script src="./bibliotecas/jquery-easing/jquery.easing.min.js"></script>
+    <!-- JS ADMIN -->
+    <script type="text/javascript" src="./js/sb-admin.min.js"></script>
+</body>
+</html>
